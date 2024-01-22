@@ -27,6 +27,8 @@ function showItems() {
     })
 
     fullList.innerHTML = newList
+
+    localStorage.setItem('list', JSON.stringify(itemsList))
     
 }
 
@@ -39,5 +41,17 @@ function deleteItem(position) {
     itemsList.splice(position, 1)
     showItems()
 }
+
+function tasksReload() {
+    const localStorageTasks = localStorage.getItem('list')
+
+    if(localStorageTasks) {
+        itemsList = JSON.parse(localStorageTasks)
+    }
+
+    showItems()
+}
+
+tasksReload()
 
 button.addEventListener('click', addNewItems)
