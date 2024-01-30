@@ -5,12 +5,20 @@ const fullList = document.querySelector('.list-tasks')
 let itemsList = []
 
 function addNewItems() {
+    checkItems()
     itemsList.push({
         task: input.value,
         done: false
     })
     input.value = ''
     showItems()
+}
+
+function checkItems(event) {
+    if(input.value == "") {
+        alert("Please, type something!")
+        event.preventDefault()
+    } 
 }
 
 function showItems() {
