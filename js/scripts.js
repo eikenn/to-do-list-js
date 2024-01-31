@@ -62,4 +62,11 @@ function tasksReload() {
 
 tasksReload()
 
-button.addEventListener('click', addNewItems)
+button.addEventListener("click", addNewItems)
+
+document.addEventListener("keydown", ({ key }) => {
+
+    if(key == "Enter") {
+        addNewItems()
+    }
+})
